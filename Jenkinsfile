@@ -6,7 +6,7 @@ pipeline {
             agent {
                 ecs {
                    cloud 'jenkins-slave-ecs'
-                   image 'jportasa/newrelic-go:1.1'
+                   image 'jportasa/newrelic-go:1.2'
                    launchType 'FARGATE'
                    memory 1024
                    cpu 256
