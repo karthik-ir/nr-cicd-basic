@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  node0:
+    image: jportasa/newrelic-go:1.0
+    command: sleep 999999999
+    volumes:
+     - ./golang-simple-app:/go/src
+    ports:
+      - "80:80"
+    networks:
+      - front-tier
+      - back-tier
+
+networks:
+  front-tier:
+  back-tier:
