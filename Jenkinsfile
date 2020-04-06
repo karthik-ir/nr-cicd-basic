@@ -21,6 +21,9 @@ pipeline {
                    taskrole 'arn:aws:iam::953835556803:role/ecsTaskExecutionRole'
                    executionRole 'arn:aws:iam::953835556803:role/ecsTaskExecutionRole'
                    assignPublicIp true
+                   logDriver 'aswlogs'
+                   logDriverOptions([[name: 'awslogs-region', value:'us-east-1'], [name: 'awslogs-group', value: 'jenkins-slave'], [name: 'awslogs-stream-prefix', value: 'alpine']])
+
                 }
             }
             steps {
