@@ -3,12 +3,6 @@ pipeline {
 
     stages {
         stage('Tests') {
-            when {
-                branch 'master'
-            }
-            environment {
-                STAGE='prod'
-            }
             agent {
                 ecs {
                    cloud 'jenkins-slave-ecs'
