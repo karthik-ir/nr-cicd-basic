@@ -24,7 +24,6 @@ pipeline {
                 sh '''
                     pwd
                     env
-                    cd nr-cicd-basic
                     make test
                     make build
                    '''
