@@ -24,6 +24,7 @@ pipeline {
                 sh '''
                     echo pwd
                     env
+                    go
                    '''
 
             }
