@@ -25,7 +25,9 @@ pipeline {
                     pwd
                     env
                     go
-
+                    cd nr-cicd-basic
+                    make test
+                    make build
                    '''
 
             }
