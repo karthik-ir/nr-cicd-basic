@@ -6,7 +6,7 @@ pipeline {
             agent {
                 ecs {
                    cloud 'jenkins-slave-ecs'
-                   image 'jportasa/nr-alpine-go:1.4'
+                   image 'jportasa/nr-alpine-go:1.5'
                    launchType 'FARGATE'
                    memory 1024
                    cpu 256
