@@ -6,7 +6,7 @@ pipeline {
             agent {
                 ecs {
                    cloud 'jenkins-slave-ecs'
-                   image 'jportasa/nr-alpine-go:1.3'
+                   image 'jportasa/nr-alpine-go:1.4'
                    launchType 'FARGATE'
                    memory 1024
                    cpu 256
@@ -22,9 +22,10 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo pwd
+                    pwd
                     env
                     go
+
                    '''
 
             }
