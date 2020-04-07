@@ -24,6 +24,7 @@ pipeline {
                 sh '''
                     pwd
                     env
+                    cd golang-simple-app
                     make test
                     make build
                    '''
