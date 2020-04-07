@@ -1,6 +1,6 @@
 FROM jenkins/jnlp-slave:alpine as jnlp
 
-FROM cytopia/ansible:latest-tools
+FROM golang:1.14-alpine
 
 RUN apk -U add openjdk8-jre
 
