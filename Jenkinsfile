@@ -6,7 +6,7 @@ pipeline {
             agent {
                 ecs {
                    cloud 'jenkins-slave-ecs'
-                   image 'jportasa/nr-alpine-go:1.5'
+                   image 'jportasa/nr-alpine-go:1.6'
                    launchType 'FARGATE'
                    memory 1024
                    cpu 256
@@ -27,6 +27,7 @@ pipeline {
                     cd golang-simple-app
                     make test
                     make build
+                    aws s3 cp ./target/webapp s3://nr-artifacts/webapp
                    '''
 
             }
