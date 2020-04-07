@@ -1,28 +1,4 @@
-# Jenkins installation with Ansible in EC2
+# Jenkins ECS Slave plugin configuration
 
-```
-apt-get update
-apt install ansible
-cd /etc/ansible
-mkdir roles
-cd roles
-ansible-galaxy install -p . geerlingguy.jenkins
-ansible-galaxy install -p . geerlingguy.java
-cd ..
-cat <<'EOF' >>  create_jenkins.yml
-- name: Install Jenkins
-  become: yes
-  hosts: localhost
-  
-  vars:
-    jenkins_hostname: jenkins.example.com
-    java_packages:
-      - openjdk-8-jdk
-
-  roles:
-    - role: geerlingguy.java
-    - role: geerlingguy.jenkins
-EOF
-ansible-playbook create_jenkins.yml
-
+This repo will create a ECS slave with alpine image and Go to execute a Go test, and build. Finally it uploads to S3 the artifact.
 ```
