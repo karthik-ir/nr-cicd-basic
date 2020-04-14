@@ -11,11 +11,25 @@ spec:
       command: ["tail", "-f", "/dev/null"]
       tty: true
       imagePullPolicy: Always
-    - name: centos5
-      image: astj/centos5-vault
-      command: ["tail", "-f", "/dev/null"]
-      tty: true
-      imagePullPolicy: Always
+      nodeSelector:
+        nodegroup-name: mix
+#    - name: centos5
+#      image: astj/centos5-vault
+#      command: ["tail", "-f", "/dev/null"]
+#      tty: true
+#      imagePullPolicy: Always
+#      nodeSelector:
+#        agentpool: amilinux
+    - name: windows-dotnet
+        image: mcr.microsoft.com/dotnet/core/sdk:2.1
+        tty: true
+      nodeSelector:
+        nodegroup-name: windows-ng
+
+
+
+      nodeSelector:
+        agentpool: winage
 
 
 #      volumeMounts:
