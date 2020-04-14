@@ -4,6 +4,21 @@ pipeline {
         PROJECT = "TESTING JENKINS SLAVE IN NR"
     }
     stages {
+        stage('Run win') {
+            agent {
+                kubernetes {
+                    label 'jenkins-windows-slave'
+                    yamlFile 'JenkinsKubernetesPodWindows.yaml'
+                    nodeSelector 'beta.kubernetes.io/os: windows'
+                }
+            }
+            steps {
+                // The needed steps for your testing
+                container('windows') {
+                    bat 'dotnet -h'
+               }
+            }
+        }
         stage('Run busybox') {
             agent {
                 kubernetes {
@@ -19,21 +34,6 @@ pipeline {
                         busybox | head -1
                     """
                    }
-            }
-        }
-        stage('Run win') {
-            agent {
-                kubernetes {
-                    label 'jenkins-windows-slave'
-                    yamlFile 'JenkinsKubernetesPodWindows.yaml'
-                    nodeSelector 'beta.kubernetes.io/os: windows'
-                }
-            }
-            steps {
-                // The needed steps for your testing
-                container('windows') {
-                    bat 'dotnet -h'
-               }
             }
         }
     }
