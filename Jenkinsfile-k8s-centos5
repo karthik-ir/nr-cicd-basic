@@ -26,10 +26,7 @@ pipeline {
             steps {
                 // The needed steps for your testing
                 container('windows-dotnet') {
-                    sh """
-                        echo $PROJECT
-                        cat /etc/issue
-                     """
+                    bat 'dotnet -h'
                }
             }
         }
