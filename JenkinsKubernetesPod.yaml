@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-     name: jenkins-slave
+     name: jenkins-linux-slave
 spec:
   #serviceAccount: jenkins
   containers:  # list of containers that you want present for your build, you can define a default container in the Jenkinsfile
@@ -20,12 +20,6 @@ spec:
 #      imagePullPolicy: Always
 #      nodeSelector:
 #        agentpool: amilinux
-
-    - name: windows
-      image: mcr.microsoft.com/dotnet/core/sdk:2.1
-      tty: true
-      nodeSelector:
-        nodegroup-name: windows-ng
 
 
 #      volumeMounts:

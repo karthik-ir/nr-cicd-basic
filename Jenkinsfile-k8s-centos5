@@ -1,28 +1,33 @@
 pipeline {
-    agent {
-        kubernetes {
-            label 'jenkins-slave'  // all your pods will be named with this prefix, followed by a unique id
-            yamlFile 'JenkinsKubernetesPod.yaml'
-            defaultContainer 'jnlp'
-            idleMinutes 5  // how long the pod will live after no jobs have run on it
-        }
-    }
+
     environment {
         PROJECT = "TESTING JENKINS SLAVE IN NR"
     }
     stages {
         stage('Run busybox') {
+            agent {
+                kubernetes {
+                    label 'jenkins-linux-slave'
+                    yamlFile 'JenkinsKubernetesPod.yaml'
+                }
+            }
             steps {
                 // The needed steps for your testing
                 container('busybox') {
                     sh """
                         echo $PROJECT
                         busybox | head -1
-                     """
-               }
+                    """
+                   }
             }
         }
         stage('Run win') {
+            agent {
+                kubernetes {
+                    label 'jenkins-windows-slave'
+                    yamlFile 'JenkinsKubernetesPodWindows.yaml'
+                }
+            }
             steps {
                 // The needed steps for your testing
                 container('windows') {
