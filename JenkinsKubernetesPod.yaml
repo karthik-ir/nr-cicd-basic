@@ -22,7 +22,7 @@ spec:
 #        agentpool: amilinux
 
     - name: windows
-      image: microsoft/nanoserver
+      image: mcr.microsoft.com/dotnet/core/sdk:2.1
       tty: true
       nodeSelector:
         nodegroup-name: windows-ng
