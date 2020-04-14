@@ -25,7 +25,7 @@ pipeline {
         stage('Run win') {
             steps {
                 // The needed steps for your testing
-                container('windows-dotnet') {
+                container('windows') {
                     bat 'dotnet -h'
                }
             }

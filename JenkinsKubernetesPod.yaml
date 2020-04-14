@@ -20,7 +20,7 @@ spec:
 #      imagePullPolicy: Always
 #      nodeSelector:
 #        agentpool: amilinux
-    - name: windows-dotnet
+    - name: windows
         image: microsoft/nanoserver
         tty: true
       nodeSelector:
