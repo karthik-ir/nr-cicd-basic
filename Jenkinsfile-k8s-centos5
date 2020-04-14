@@ -24,32 +24,5 @@ pipeline {
                }
             }
         }
-
-        stage('Build') {
-            steps {
-                // Build the app
-                container('docker') {
-                    sh 'docker images'
-                }
-            }
-        }
-
-        stage('Docker push') {
-            steps {
-                // Publish a docker image for your application
-                container('docker') {
-                    sh 'docker images'
-                }
-            }
-        }
-
-        stage('Deployment to PRO') {
-            steps {
-                 container('helm') {
-                    // Init authentication and config for your kubernetes cluster
-                    sh "helm upgrade --install --wait prod-my-app ./helm --namespace pro"
-                 }
-            }
-        }
     }
 }
