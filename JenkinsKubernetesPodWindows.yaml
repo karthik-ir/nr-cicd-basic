@@ -10,5 +10,5 @@ spec:
       image: mcr.microsoft.com/dotnet/core/sdk:2.1
       tty: true
       nodeSelector:
-        nodegroup-name: windows-ng
+        instance-type: amiwin
 
