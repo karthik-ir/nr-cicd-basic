@@ -20,9 +20,10 @@ spec:
 #      imagePullPolicy: Always
 #      nodeSelector:
 #        agentpool: amilinux
+
     - name: windows
-        image: microsoft/nanoserver
-        tty: true
+      image: microsoft/nanoserver
+      tty: true
       nodeSelector:
         nodegroup-name: windows-ng
 
