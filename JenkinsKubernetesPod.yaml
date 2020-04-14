@@ -12,7 +12,7 @@ spec:
       tty: true
       imagePullPolicy: Always
     - name: centos5
-      image: centos5
+      image: astj/centos5-vault
       command: ["tail", "-f", "/dev/null"]
       tty: true
       imagePullPolicy: Always
