@@ -35,14 +35,15 @@ RUN yum install -y java-1.7.0-openjdk
 COPY --from=jnlp /usr/share/jenkins/slave.jar /usr/share/jenkins/slave.jar
 COPY --from=jnlp /usr/local/bin/jenkins-slave /usr/local/bin/jenkins-slave
 
-# Openssh install
-RUN yum install -y openssh-server
-RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-RUN echo 'root:THEPASSWORDYOUCREATED' | chpasswd
-RUN yum install -y sudo
-RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
-RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
-RUN yum clean all
-EXPOSE 22
-#ENTRYPOINT ["/usr/local/bin/jenkins-slave"]
-ENTRYPOINT ["/usr/sbin/sshd", "-D"]
+## Openssh install
+#RUN yum install -y openssh-server
+#RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+#RUN echo 'root:THEPASSWORDYOUCREATED' | chpasswd
+#RUN yum install -y sudo
+#RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
+#RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
+#RUN yum clean all
+#EXPOSE 22
+#ENTRYPOINT ["/usr/sbin/sshd", "-D"]
+
+ENTRYPOINT ["/usr/local/bin/jenkins-slave"]
