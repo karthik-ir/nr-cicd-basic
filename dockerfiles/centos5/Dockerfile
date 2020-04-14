@@ -45,4 +45,4 @@ RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
 RUN yum clean all
 EXPOSE 22
 #ENTRYPOINT ["/usr/local/bin/jenkins-slave"]
-CMD ["/usr/sbin/sshd", "-D"]
+ENTRYPOINT ["/usr/sbin/sshd", "-D"]
