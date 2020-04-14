@@ -18,7 +18,7 @@ pipeline {
                 container('busybox') {
                     sh """
                         echo $PROJECT
-                        cat /etc/issue
+                        busybox | head -1
                      """
                }
             }
