@@ -26,7 +26,7 @@ pipeline {
                 kubernetes {
                     label 'jenkins-windows-slave'
                     yamlFile 'JenkinsKubernetesPodWindows.yaml'
-                    nodeSelector 'beta.kubernetes.io/os: "windows"'
+                    nodeSelector 'beta.kubernetes.io/os: windows'
                 }
             }
             steps {
