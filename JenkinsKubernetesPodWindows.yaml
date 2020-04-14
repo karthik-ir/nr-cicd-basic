@@ -6,6 +6,11 @@ metadata:
 spec:
   #serviceAccount: jenkins
   containers:  # list of containers that you want present for your build, you can define a default container in the Jenkinsfile
+    - name: jnlp
+      image: jenkins/jnlp-agent:latest-windows
+      tty: true
+      nodeSelector:
+        instance-type: amiwin
     - name: windows
       image: mcr.microsoft.com/dotnet/core/sdk:2.1
       tty: true
