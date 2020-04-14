@@ -12,14 +12,14 @@ spec:
       tty: true
       imagePullPolicy: Always
       nodeSelector:
-        beta.kubernetes.io/os: "linux"
+        kubernetes.io/os: "linux"
 #    - name: centos5
 #      image: astj/centos5-vault
 #      command: ["tail", "-f", "/dev/null"]
 #      tty: true
 #      imagePullPolicy: Always
 #      nodeSelector:
-#        beta.kubernetes.io/os: "linux"
+#        kubernetes.io/os: "linux"
 
 
 #      volumeMounts:
