@@ -6,11 +6,6 @@ metadata:
 spec:
   #serviceAccount: jenkins
   containers:  # list of containers that you want present for your build, you can define a default container in the Jenkinsfile
-    - name: jenkins-slave
-      image: jenkins/jnlp-slave
-      tty: true
-      imagePullPolicy: Always
-      args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
     - name: busybox
       image: busybox
       command: ["tail", "-f", "/dev/null"]
