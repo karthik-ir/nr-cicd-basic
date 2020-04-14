@@ -21,15 +21,10 @@ spec:
 #      nodeSelector:
 #        agentpool: amilinux
     - name: windows-dotnet
-        image: mcr.microsoft.com/dotnet/core/sdk:2.1
+        image: microsoft/nanoserver
         tty: true
       nodeSelector:
         nodegroup-name: windows-ng
-
-
-
-      nodeSelector:
-        agentpool: winage
 
 
 #      volumeMounts:
