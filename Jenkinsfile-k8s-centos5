@@ -11,7 +11,7 @@ pipeline {
         PROJECT = "REPLACE_WITH_YOUR_PROJECT_ID"
     }
     stages {
-        stage('Run unit tests') {
+        stage('Run busybox') {
             //when { branch 'PR-*'}
             steps {
                 // The needed steps for your testing
@@ -23,7 +23,7 @@ pipeline {
                }
             }
         }
-        stage('Run unit tests') {
+        stage('Run centos5') {
             //when { branch 'PR-*'}
             steps {
                 // The needed steps for your testing
