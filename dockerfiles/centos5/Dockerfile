@@ -41,7 +41,8 @@ RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/s
 RUN echo 'root:THEPASSWORDYOUCREATED' | chpasswd
 RUN yum install -y sudo
 RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
+RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
 RUN yum clean all
-
+EXPOSE 22
 #ENTRYPOINT ["/usr/local/bin/jenkins-slave"]
-ENTRYPOINT ["/usr/sbin/sshd", "-D"]
+CMD ["/usr/sbin/sshd", "-D"]
