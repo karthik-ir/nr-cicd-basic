@@ -17,7 +17,6 @@ pipeline {
                 // The needed steps for your testing
                 container('busybox') {
                     sh """
-                        echo 'Hola"
                         echo $PROJECT
                         cat /etc/issue
                      """
