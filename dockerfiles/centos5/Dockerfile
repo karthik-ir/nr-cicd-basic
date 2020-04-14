@@ -31,9 +31,15 @@ RUN wget -q --no-check-certificate https://storage.googleapis.com/golang/go$GO_V
 ENV PATH "$PATH:/usr/local/go/bin"
 
 # Jenkins node JNLP
-RUN yum install -y java-1.7.0-openjdk
+RUN yum install -y java-1.7.0-openjdk sudo
 COPY --from=jnlp /usr/share/jenkins/slave.jar /usr/share/jenkins/slave.jar
 COPY --from=jnlp /usr/local/bin/jenkins-slave /usr/local/bin/jenkins-slave
+RUN adduser jenkins
+RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+USER jenkins
+RUN mkdir -p /home/jenkins/.jenkins
+#VOLUME /home/jenkins/.jenkins
+WORKDIR /home/jenkins
 
 ## Openssh install
 #RUN yum install -y openssh-server
