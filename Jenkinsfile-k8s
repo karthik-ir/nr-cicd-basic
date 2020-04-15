@@ -19,19 +19,20 @@ pipeline {
                }
             }
         }
-        stage('Run busybox') {
+        stage('Run centos5') {
             agent {
                 kubernetes {
                     label 'jenkins-linux-slave'
-                    yamlFile 'JenkinsKubernetesPod.yaml'
+                    yamlFile 'JenkinsKubernetesPodLinux.yaml'
                 }
             }
             steps {
                 // The needed steps for your testing
-                container('busybox') {
+                container('centos5-go') {
                     sh """
                         echo $PROJECT
-                        busybox | head -1
+                        go version
+                        make -v
                     """
                    }
             }

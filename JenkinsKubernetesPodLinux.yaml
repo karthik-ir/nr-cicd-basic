@@ -6,11 +6,11 @@ metadata:
 spec:
   #serviceAccount: jenkins
   containers:  # list of containers that you want present for your build, you can define a default container in the Jenkinsfile
-    - name: busybox
-      image: busybox
+    - name: centos5-go
+      image: 953835556803.dkr.ecr.us-east-1.amazonaws.com/centos5-go:1.0
       command: ["tail", "-f", "/dev/null"]
       tty: true
-      imagePullPolicy: Always
+      imagePullPolicy: IfNotPresent
       nodeSelector:
         kubernetes.io/os: "linux"
 #    - name: centos5
