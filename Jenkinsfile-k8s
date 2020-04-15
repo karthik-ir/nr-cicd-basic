@@ -18,6 +18,7 @@ pipeline {
                         // The needed steps for your testing
                         container('windows') {
                             bat 'go version'
+                            bat 'make -v'
                         }
                     }
                 }
