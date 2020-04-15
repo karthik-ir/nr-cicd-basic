@@ -10,12 +10,11 @@ spec:
     - name: jnlp
       image: jenkins/jnlp-agent:latest-windows
       tty: true
+    - name: windows
+      image: mcr.microsoft.com/dotnet/core/sdk:2.1
+      tty: true
   nodeSelector:
     kubernetes.io/os: "windows"
-
-#    - name: windows
-#      image: mcr.microsoft.com/dotnet/core/sdk:2.1
-#      tty: true
 
 
 
