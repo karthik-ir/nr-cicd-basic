@@ -11,7 +11,7 @@ spec:
       image: jenkins/jnlp-agent:latest-windows
       tty: true
     - name: windows
-      image: windows/nanoserver
+      image: windows/nanoserver:1903
       tty: true
   nodeSelector:
     kubernetes.io/os: "windows"
