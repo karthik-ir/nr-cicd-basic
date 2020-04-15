@@ -17,7 +17,7 @@ pipeline {
                     steps {
                         // The needed steps for your testing
                         container('windows') {
-                            bat 'dotnet -h'
+                            bat 'go version'
                         }
                     }
                 }
