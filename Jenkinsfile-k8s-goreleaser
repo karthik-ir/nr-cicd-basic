@@ -21,6 +21,9 @@ pipeline {
                             sh """
                                 echo $GITHUB_TOKEN
                                 echo $PROJECT
+                                echo Workspace dir is ${pwd()}
+                                cd $WORKSPACE
+                                echo Workspace dir is ${pwd()}
                                 sleep 100000000
                                 curl -sL https://git.io/goreleaser | bash
                             """
