@@ -14,7 +14,7 @@ pipeline {
             }
             steps {
                 container('gorelaser') {
-                    sh 'curl -sL https://git.io/goreleaser | bash'
+                    sh 'goreleaser'
                 }
             }
         }
