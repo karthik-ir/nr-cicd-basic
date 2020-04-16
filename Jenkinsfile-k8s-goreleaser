@@ -19,8 +19,8 @@ pipeline {
                         container('goreleaser') {
                             sh """
                                 echo $GITHUB_TOKEN
-                                curl -sL https://git.io/goreleaser | bash
                                 sleep 100000000
+                                curl -sL https://git.io/goreleaser | bash
                             """
                         }
                     }
