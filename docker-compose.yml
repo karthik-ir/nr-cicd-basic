@@ -2,7 +2,7 @@ version: "3"
 
 services:
   node0:
-    image: jportasa/nr-jenkinsslave-ubuntu-go:1.0
+    image: ubuntu
     command: sleep 999999999
     volumes:
      - ./golang-simple-app:/go/src

@@ -1,0 +1,27 @@
+pipeline {
+    agent none
+    environment {
+        GITHUB_TOKEN = credentials('github_token')
+    }
+    stages {
+        stage('all stages') {
+                stage('Binaries creation') {
+                    agent {
+                        kubernetes {
+                            label 'jenkins-linux-slave'
+                            yamlFile 'JenkinsKubernetesPodLinux.yaml'
+                            nodeSelector 'kubernetes.io/os=linux'
+                        }
+                    }
+                    stage('Release') {
+                        steps {
+                            container('gorelaser') {
+                                sh 'curl -sL https://git.io/goreleaser | bash'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -11,6 +11,12 @@ spec:
       command: ["tail", "-f", "/dev/null"]
       tty: true
       imagePullPolicy: IfNotPresent
+    - name: goreleaser
+      image: 953835556803.dkr.ecr.us-east-1.amazonaws.com/centos5-go:1.0
+      command: ["tail", "-f", "/dev/null"]
+      tty: true
+      imagePullPolicy: IfNotPresent
+
       nodeSelector:
         kubernetes.io/os: "linux"
 #    - name: centos5

@@ -22,7 +22,7 @@ iam:
           - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 nodeGroups:
   - name: mix
-    minSize: 2
+    minSize: 1
     maxSize: 5
 #    availabilityZones:
 #      - us-east-1b # <---------Cambiar
