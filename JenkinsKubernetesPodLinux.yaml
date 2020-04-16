@@ -13,7 +13,7 @@ spec:
       imagePullPolicy: IfNotPresent
     - name: goreleaser
       image: goreleaser/goreleaser
-      command: ["tail", "-f", "/dev/null"]
+      command: ["release"]
       tty: true
       imagePullPolicy: IfNotPresent
       nodeSelector:
