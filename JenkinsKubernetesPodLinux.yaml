@@ -16,6 +16,11 @@ spec:
       command: ["tail", "-f", "/dev/null"]
       tty: true
       imagePullPolicy: IfNotPresent
+    - name: busybox
+      image: busybox
+      command: ["tail", "-f", "/dev/null"]
+      tty: true
+      imagePullPolicy: IfNotPresent
       nodeSelector:
         kubernetes.io/os: "linux"
 #    - name: centos5

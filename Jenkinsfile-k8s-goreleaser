@@ -22,3 +22,53 @@ pipeline {
         }
     }
 }
+
+
+
+
+pipeline {
+    agent none
+    environment {
+        GITHUB_TOKEN = credentials('github_token')
+    }
+    stages {
+        stage('Run Tests') {
+            parallel {
+                stage('Release') {
+                    agent {
+                        kubernetes {
+                            label 'jenkins-linux-slave'
+                            yamlFile 'JenkinsKubernetesPodLinux.yaml'
+                            nodeSelector 'kubernetes.io/os=linux'
+                        }
+                    }
+                    steps {
+                        // The needed steps to create the binaries
+                        container('gorelaser') {
+                            sh """
+                                echo $GITHUB_TOKEN
+                                curl -sL https://git.io/goreleaser | bash
+                            """
+                        }
+                    }
+                }
+                stage('echo busybox') {
+                    agent {
+                        kubernetes {
+                            label 'jenkins-linux-slave'
+                            yamlFile 'JenkinsKubernetesPodLinux.yaml'
+                        }
+                    }
+                    steps {
+                        // The needed steps for your testing
+                        container('busybox') {
+                            sh """
+                                echo $PROJECT
+                            """
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
