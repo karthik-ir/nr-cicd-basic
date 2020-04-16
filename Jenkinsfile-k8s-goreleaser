@@ -11,11 +11,11 @@ pipeline {
                             nodeSelector 'kubernetes.io/os=linux'
                         }
                     }
+                    environment {
+                        GITHUB_TOKEN = credentials('github_token')
+                    }
                     steps {
                         // The needed steps to create the binaries
-                        environment {
-                            GITHUB_TOKEN = credentials('github_token')
-                        }
                         container('goreleaser') {
                             sh """
                                 echo $GITHUB_TOKEN
