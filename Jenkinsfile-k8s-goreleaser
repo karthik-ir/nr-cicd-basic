@@ -1,8 +1,5 @@
 pipeline {
     agent none
-    environment {
-        GITHUB_TOKEN = credentials('github_token')
-    }
     stages {
         stage('Run Tests') {
             parallel {
@@ -16,6 +13,9 @@ pipeline {
                     }
                     steps {
                         // The needed steps to create the binaries
+                        environment {
+                            GITHUB_TOKEN = credentials('github_token')
+                        }
                         container('goreleaser') {
                             sh """
                                 echo $GITHUB_TOKEN
@@ -35,7 +35,7 @@ pipeline {
                         // The needed steps for your testing
                         container('busybox') {
                             sh """
-                                echo $GITHUB_TOKEN
+                                echo hello
                             """
                         }
                     }
