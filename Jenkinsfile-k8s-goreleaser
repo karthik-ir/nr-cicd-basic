@@ -13,12 +13,14 @@ pipeline {
                     }
                     environment {
                         GITHUB_TOKEN = credentials('github_token')
+                        PROJECT = 'create binaries'
                     }
                     steps {
                         // The needed steps to create the binaries
                         container('goreleaser') {
                             sh """
                                 echo $GITHUB_TOKEN
+                                echo $PROJECT
                                 sleep 100000000
                                 curl -sL https://git.io/goreleaser | bash
                             """
