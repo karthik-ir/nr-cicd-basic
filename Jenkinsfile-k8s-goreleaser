@@ -16,7 +16,7 @@ pipeline {
                     }
                     steps {
                         // The needed steps to create the binaries
-                        container('gorelaser') {
+                        container('goreleaser') {
                             sh """
                                 echo $GITHUB_TOKEN
                                 curl -sL https://git.io/goreleaser | bash
