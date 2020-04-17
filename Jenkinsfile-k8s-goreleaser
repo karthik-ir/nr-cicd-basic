@@ -21,23 +21,6 @@ pipeline {
                             sh """
                                 echo Workspace dir is ${pwd()}
                                 goreleaser release  --rm-dist
-                                #curl -sL https://git.io/goreleaser | bash
-                            """
-                        }
-                    }
-                }
-                stage('echo busybox') {
-                    agent {
-                        kubernetes {
-                            label 'jenkins-linux-slave'
-                            yamlFile 'JenkinsKubernetesPodLinux.yaml'
-                        }
-                    }
-                    steps {
-                        // The needed steps for your testing
-                        container('busybox') {
-                            sh """
-                                echo hello
                             """
                         }
                     }
