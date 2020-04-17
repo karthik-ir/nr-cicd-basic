@@ -15,12 +15,12 @@ spec:
       image: jportasa/goreleaser:1.10
       command: ["tail", "-f", "/dev/null"]
       tty: true
-      imagePullPolicy: IfNotPresent
+      imagePullPolicy: Always
     - name: busybox
       image: busybox
       command: ["tail", "-f", "/dev/null"]
       tty: true
-      imagePullPolicy: IfNotPresent
+      imagePullPolicy: Always
       nodeSelector:
         kubernetes.io/os: "linux"
 #    - name: centos5
