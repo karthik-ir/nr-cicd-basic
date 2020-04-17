@@ -13,6 +13,7 @@ pipeline {
                     }
                     environment {
                         GITHUB_TOKEN = credentials('github_token')
+                        GOPATH = './app'
                         PROJECT = 'create binaries'
                     }
                     steps {
@@ -20,8 +21,10 @@ pipeline {
                         container('goreleaser') {
                             sh """
                                 echo $GITHUB_TOKEN
+                                echo $GOPATH
                                 echo $PROJECT
                                 echo Workspace dir is ${pwd()}
+                                sleep 100000
                                 curl -sL https://git.io/goreleaser | bash
                             """
                         }
