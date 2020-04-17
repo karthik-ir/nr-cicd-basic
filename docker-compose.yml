@@ -2,16 +2,10 @@ version: "3"
 
 services:
   node0:
-    image: ubuntu
+    environment:
+    - GOPATH=/repo/app
+    image: golang:1.10
     command: sleep 999999999
     volumes:
-     - ./golang-simple-app:/go/src
-    ports:
-      - "80:80"
-    networks:
-      - front-tier
-      - back-tier
+     - ./nr-cicd-basic:/repo
 
-networks:
-  front-tier:
-  back-tier:
