@@ -20,7 +20,6 @@ pipeline {
                         container('goreleaser') {
                             sh """
                                 echo Workspace dir is ${pwd()}
-                                sleep 100000
                                 goreleaser release  --rm-dist
                                 #curl -sL https://git.io/goreleaser | bash
                             """
