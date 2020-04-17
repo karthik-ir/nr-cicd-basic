@@ -24,7 +24,7 @@ pipeline {
                                 echo $GOPATH
                                 echo $PROJECT
                                 echo Workspace dir is ${pwd()}
-                                goreleaser
+                                goreleaser release --skip-publish --rm-dist
                                 sleep 100000
                                 #curl -sL https://git.io/goreleaser | bash
                             """
