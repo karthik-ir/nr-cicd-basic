@@ -13,7 +13,6 @@ pipeline {
                     }
                     environment {
                         GITHUB_TOKEN = credentials('jenkins_github_token')
-                        GOPATH = './app'
                         PROJECT = 'create binaries'
                     }
                     steps {
@@ -21,7 +20,7 @@ pipeline {
                         container('goreleaser') {
                             sh """
                                 echo Workspace dir is ${pwd()}
-                                goreleaser release --skip-publish --rm-dist
+                                goreleaser release  --rm-dist
                                 #curl -sL https://git.io/goreleaser | bash
                             """
                         }
