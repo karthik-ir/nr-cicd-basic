@@ -12,7 +12,7 @@ pipeline {
                         }
                     }
                     environment {
-                        GITHUB_TOKEN = credentials('github_token')
+                        GITHUB_TOKEN = credentials('jenkins_github_token')
                         GOPATH = './app'
                         PROJECT = 'create binaries'
                     }
