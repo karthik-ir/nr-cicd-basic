@@ -20,12 +20,11 @@ pipeline {
                         // The needed steps to create the binaries
                         container('goreleaser') {
                             sh """
-                                echo $GITHUB_TOKEN
-                                echo $GOPATH
-                                echo $PROJECT
+                                export GITHUB_TOKEN=741c7ae024ee684e60df8c7a8aed9b53d85eb194
                                 echo Workspace dir is ${pwd()}
-                                goreleaser release --skip-publish --rm-dist
                                 sleep 100000
+                                goreleaser release --skip-publish --rm-dist
+
                                 #curl -sL https://git.io/goreleaser | bash
                             """
                         }
