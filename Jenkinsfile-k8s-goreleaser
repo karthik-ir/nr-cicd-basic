@@ -25,7 +25,9 @@ pipeline {
                                 echo $PROJECT
                                 echo Workspace dir is ${pwd()}
                                 sleep 100000
-                                curl -sL https://git.io/goreleaser | bash
+                                goreleaser
+                                sleep 100000
+                                #curl -sL https://git.io/goreleaser | bash
                             """
                         }
                     }
